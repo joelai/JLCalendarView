@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class JLCalMenuView: UIView, JLCalMenu {
+@objc public class JLCalMenuView: UIView, JLCalMenu {
     
     public var calManager: JLCalManager?
     public var date: Date?

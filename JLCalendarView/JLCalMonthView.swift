@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class JLCalMonthView: UIView, JLCalMonth {
+@objc public class JLCalMonthView: UIView, JLCalMonth {
 
     public var calManager: JLCalManager?
     var menuView : UIView?

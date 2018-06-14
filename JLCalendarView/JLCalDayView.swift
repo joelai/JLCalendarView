@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class JLCalDayView: UIView,JLCalDay {
+@objc public class JLCalDayView: UIView,JLCalDay {
     var label : UILabel?
     public var isFromOtherMonth: Bool = false
     public var calManager: JLCalManager?

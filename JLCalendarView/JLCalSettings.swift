@@ -8,18 +8,18 @@
 
 import Foundation
 
-public enum JLWeekDayFormat {
+@objc public enum JLWeekDayFormat: Int {
     case single
     case short
     case full
 }
 
-public enum JLCalViewPageType {
+@objc public enum JLCalViewPageType: Int {
     case week
     case month
 }
 
-public class JLCalSettings : NSObject {
+@objc public class JLCalSettings : NSObject {
     public var weekDayFormat: JLWeekDayFormat = .short
     public var calViewPageType: JLCalViewPageType = .month
     public var menuHeight: CGFloat = 30.0

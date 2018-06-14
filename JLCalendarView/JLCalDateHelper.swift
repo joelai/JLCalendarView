@@ -67,7 +67,7 @@ extension Date {
     }
 }
 
-public class JLCalDateHelper : NSObject {
+@objc public class JLCalDateHelper : NSObject {
     var calendar : Calendar
     var dateFormatter : DateFormatter
     

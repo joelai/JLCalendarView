@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class JLCalManager : NSObject {
+@objc public class JLCalManager : NSObject {
     public weak var delegate:JLCalViewDelegate?
     public var dateHelper: JLCalDateHelper
     public var settings: JLCalSettings

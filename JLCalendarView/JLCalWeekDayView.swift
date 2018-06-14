@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class JLCalWeekDayView: UIView, JLCalWeekDay {
+@objc public class JLCalWeekDayView: UIView, JLCalWeekDay {
 
     var dayViews = [] as NSMutableArray
     public var calManager: JLCalManager?{
