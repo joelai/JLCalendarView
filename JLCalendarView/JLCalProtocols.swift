@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public protocol JLCalDay : class {
+@objc public protocol JLCalDay : NSObjectProtocol {
     var calManager:JLCalManager?{get set}
     var date:Date?{get set}
     var isFromOtherMonth:Bool{get set}
@@ -18,33 +18,33 @@ public protocol JLCalDay : class {
 extension JLCalDay where Self: UIView {}
 
 
-public protocol JLCalWeek : class {
+@objc public protocol JLCalWeek : NSObjectProtocol {
     var calManager:JLCalManager?{get set}
     func config(startDate:Date, currentMonth:Date)
 }
 extension JLCalWeek where Self: UIView {}
 
 
-public protocol JLCalWeekDay : class {
+@objc public protocol JLCalWeekDay : NSObjectProtocol {
     var calManager:JLCalManager?{get set}
 }
 extension JLCalWeekDay where Self: UIView {}
 
 
-public protocol JLCalMonth : class {
+@objc public protocol JLCalMonth : NSObjectProtocol {
     var calManager:JLCalManager?{get set}
     var date:Date?{get set}
     func reload()
 }
 extension JLCalMonth where Self: UIView {}
 
-public protocol JLCalMenu : class {
+@objc public protocol JLCalMenu : NSObjectProtocol {
     var calManager:JLCalManager?{get set}
     var date:Date?{get set}
 }
 extension JLCalMenu where Self: UIView {}
 
-public protocol JLCalContent : class {
+@objc public protocol JLCalContent : NSObjectProtocol {
     var calManager:JLCalManager?{get set}
     var date:Date?{get set}
 }
