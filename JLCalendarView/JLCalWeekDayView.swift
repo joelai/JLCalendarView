@@ -24,7 +24,7 @@ import UIKit
                 let label = UILabel()
                 label.textAlignment = .center
                 label.textColor = .black
-                label.font = UIFont.systemFont(ofSize: 12)
+                label.font = UIFont.systemFont(ofSize: (calManager?.settings.weekDayFontSize)!)
                 
                 self.addSubview(label)
                 dayViews.add(label)

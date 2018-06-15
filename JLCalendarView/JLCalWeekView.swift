@@ -26,6 +26,7 @@ import UIKit
             (dayView as! JLCalDay).date = date
             (dayView as! JLCalDay).isFromOtherMonth = !date.isSameMonthAs(currentMonth)
             (dayView as! JLCalDay).reload()
+            self.calManager?.delegate?.prepareDayView?(dayView as! UIView, manager: self.calManager!)
             date = date.addDay(1)
         }
     }

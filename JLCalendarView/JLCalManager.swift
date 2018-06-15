@@ -28,13 +28,13 @@ import UIKit
         return JLCalDayView()
     }
     
-    public func buildMenuView() -> UIView {
-        if let view = self.delegate?.buildMenuView?(self) {
-            if let v = view as? JLCalMenu {
+    public func buildTitleView() -> UIView {
+        if let view = self.delegate?.buildTitleView?(self) {
+            if let v = view as? JLCalTitle {
                 return v as! UIView
             }
         }
-        return JLCalMenuView()
+        return JLCalTitleView()
     }
     
     public func buildWeekDayView() -> UIView {

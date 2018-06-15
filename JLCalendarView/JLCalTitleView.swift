@@ -1,5 +1,5 @@
 //
-//  JLCalMenuView.swift
+//  JLCalTitleView.swift
 //  JLCalendarView
 //
 //  Created by Joe on 2018/6/13.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc public class JLCalMenuView: UIView, JLCalMenu {
+@objc public class JLCalTitleView: UIView, JLCalTitle {
     
     public var calManager: JLCalManager?
     public var date: Date?
@@ -17,27 +17,25 @@ import UIKit
             self.reload()
         }
     }
-    var label: UILabel?
-    
+    public var titleLabel: UILabel?
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        label = UILabel(frame: CGRect.init(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
-        label?.textAlignment = .center
-        label?.font = UIFont.systemFont(ofSize: 16)
-        label?.textColor = .black
-        self.addSubview(label!)
-        
+        titleLabel = UILabel(frame: CGRect.init(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
+        titleLabel?.textAlignment = .center
+        titleLabel?.textColor = .black
+        self.addSubview(titleLabel!)
     }
     
     func reload(){
         if let dateFormatter = calManager?.dateHelper.dateFormatter{
             dateFormatter.dateFormat = "yyyy MMMM"
-            label?.text = dateFormatter.string(from: self.date!)
+            titleLabel?.text = dateFormatter.string(from: self.date!)
         }
+        titleLabel?.font = UIFont.systemFont(ofSize: (calManager?.settings.titleFontSize)!)
     }
     
     public override func layoutSubviews() {
-        label?.frame = CGRect.init(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
+        titleLabel?.frame = CGRect.init(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
     }
     
     required public init?(coder aDecoder: NSCoder) {

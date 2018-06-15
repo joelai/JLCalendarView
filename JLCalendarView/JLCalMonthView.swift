@@ -11,7 +11,7 @@ import UIKit
 @objc public class JLCalMonthView: UIView, JLCalMonth {
 
     public var calManager: JLCalManager?
-    var menuView : UIView?
+    var titleView : UIView?
     var weekDayView : UIView?
     var weekViews = [] as NSMutableArray
     
@@ -24,18 +24,20 @@ import UIKit
     public func reload()
     {
         var height: CGFloat = 0.0
-        height = height + (calManager?.settings.menuHeight)!
+        height = height + (calManager?.settings.titleHeight)!
         height = height + (calManager?.settings.weekDayHeight)!
         
-        if menuView == nil {
-            menuView = calManager?.buildMenuView()
-            (menuView as! JLCalMenu).calManager = self.calManager
-            (menuView as! JLCalMenu).date = self.date
-            self.addSubview(menuView!)
+        if titleView == nil {
+            titleView = calManager?.buildTitleView()
+            (titleView as! JLCalTitle).calManager = self.calManager
+            (titleView as! JLCalTitle).date = self.date
+            self.calManager?.delegate?.prepareTitleView?((titleView)!, manager: self.calManager!)
+            self.addSubview(titleView!)
         }
         if weekDayView == nil {
             weekDayView = calManager?.buildWeekDayView()
             (weekDayView as! JLCalWeekDay).calManager = self.calManager
+            self.calManager?.delegate?.prepareWeekDayView?(weekDayView!, manager: self.calManager!)
             self.addSubview(weekDayView!)
         }
         
@@ -59,6 +61,7 @@ import UIKit
         for weekView in weekViews {
             if (calManager?.dateHelper.weekHasDaysInSameMonthOfDay(weekDay: startDate!, compare: self.date!))! {
                 (weekView as! JLCalWeek).config(startDate: startDate!, currentMonth: self.date!)
+                self.calManager?.delegate?.prepareWeekView?(weekView as! UIView, manager: self.calManager!)
                 startDate = startDate?.addWeek(1)
                 height = height + (calManager?.settings.weekHeight)!
                 (weekView as! UIView).isHidden = false
@@ -77,9 +80,9 @@ import UIKit
         
         var y : CGFloat = 0.0
         let viewWidth = self.frame.size.width
-        let menuHeight = calManager?.settings.menuHeight
-        menuView?.frame = CGRect.init(x: 0, y: y, width: viewWidth, height: menuHeight!)
-        y = y + menuHeight!
+        let titleHeight = calManager?.settings.titleHeight
+        titleView?.frame = CGRect.init(x: 0, y: y, width: viewWidth, height: titleHeight!)
+        y = y + titleHeight!
         
         let weekDayHeight = calManager?.settings.weekDayHeight
         weekDayView?.frame = CGRect.init(x: 0, y: y, width: viewWidth, height: weekDayHeight!)

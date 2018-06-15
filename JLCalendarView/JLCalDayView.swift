@@ -9,30 +9,45 @@
 import UIKit
 
 @objc public class JLCalDayView: UIView,JLCalDay {
-    var label : UILabel?
+    public var textLabel : UILabel?
+    public var circleView : UIView?
     public var isFromOtherMonth: Bool = false
     public var calManager: JLCalManager?
     public var date: Date?
     
     public func reload() {
-        if label == nil {
-            label = UILabel()
-            label?.font = UIFont.systemFont(ofSize: 14)
-            label?.textColor = .black
-            label?.textAlignment = .center
+        if circleView == nil {
+            circleView = UIView()
+            self.addSubview(circleView!)
+            circleView?.isHidden = true
+            circleView?.backgroundColor = calManager?.settings.dayViewCircleBackgroundColor
+        }
+        
+        if textLabel == nil {
+            textLabel = UILabel()
+            textLabel?.font = UIFont.systemFont(ofSize: (calManager?.settings.dayFontSize)!)
+            textLabel?.textColor = .black
+            textLabel?.textAlignment = .center
             
-            self.addSubview(label!)
+            self.addSubview(textLabel!)
         }
         
         let dateFormatter = calManager?.dateHelper.dateFormatter
         dateFormatter?.dateFormat = "dd"
-        label?.text = dateFormatter?.string(from: self.date!)
-        label?.isHidden = self.isFromOtherMonth
+        textLabel?.text = dateFormatter?.string(from: self.date!)
+        textLabel?.isHidden = self.isFromOtherMonth
     }
     
     public override func layoutSubviews() {
-        if label == nil {return}
-        label?.frame = CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+        if textLabel == nil {return}
+        let width = self.frame.size.width
+        let height = self.frame.size.height
+        textLabel?.frame = CGRect.init(x: 0, y: 0, width: width, height: height)
+        let circleRedius = min(width, width)/2-3.0
+        var circleRect = circleView?.frame
+        circleRect = CGRect.init(x: self.frame.width/2-circleRedius, y: self.frame.height/2-circleRedius, width: circleRedius*2, height: circleRedius*2)
+        circleView?.frame = circleRect!
+        circleView?.layer.cornerRadius = circleRedius
     }
     
     

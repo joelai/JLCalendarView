@@ -171,4 +171,8 @@ extension Date {
         }
         return false
     }
+    
+    public func isSameDay(_ date:Date, asDate:Date) -> Bool {
+        return date.isSameDayAs(asDate)
+    }
 }

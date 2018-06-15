@@ -23,6 +23,10 @@
     
     JLCalMonthView *monthView = [[JLCalMonthView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 0)];
     JLCalManager *manager = [[JLCalManager alloc] init];
+    manager.settings.titleHeight = 44.0;
+    manager.settings.weekDayHeight = 30.0;
+    manager.settings.weekHeight = 50.0;
+
     manager.delegate = self;
     monthView.calManager = manager;
     monthView.date = [NSDate date];
@@ -30,6 +34,15 @@
     [self.view addSubview:monthView];
 }
 
+- (void)prepareDayView:(UIView *)view manager:(JLCalManager *)manager
+{
+    if([view isKindOfClass:[JLCalDayView class]])
+    {
+        JLCalDayView *dayView = (JLCalDayView *)view;
+        dayView.circleView.hidden = ![manager.dateHelper isSameDay:dayView.date asDate:[NSDate date]];
+        dayView.textLabel.textColor = [manager.dateHelper isSameDay:dayView.date asDate:[NSDate date]]?[UIColor whiteColor]:[UIColor blackColor];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -38,11 +38,11 @@ extension JLCalWeekDay where Self: UIView {}
 }
 extension JLCalMonth where Self: UIView {}
 
-@objc public protocol JLCalMenu : NSObjectProtocol {
+@objc public protocol JLCalTitle : NSObjectProtocol {
     var calManager:JLCalManager?{get set}
     var date:Date?{get set}
 }
-extension JLCalMenu where Self: UIView {}
+extension JLCalTitle where Self: UIView {}
 
 @objc public protocol JLCalContent : NSObjectProtocol {
     var calManager:JLCalManager?{get set}
@@ -55,17 +55,18 @@ extension JLCalContent where Self: UIView {}
 @objc public protocol JLCalViewDelegate : NSObjectProtocol
 {
     @objc optional func buildDayView(_ manager:JLCalManager) -> UIView
-    @objc optional func prepareDayView(_ manager:JLCalManager)
+    @objc optional func prepareDayView(_ view:UIView, manager:JLCalManager)
     
     @objc optional func buildWeekDayView(_ manager:JLCalManager) -> UIView
-    @objc optional func prepareWeekDayView(_ manager:JLCalManager)
+    @objc optional func prepareWeekDayView(_ view:UIView, manager:JLCalManager)
     
     @objc optional func buildWeekView(_ manager:JLCalManager) -> UIView
-    @objc optional func prepareWeekView(_ manager:JLCalManager)
+    @objc optional func prepareWeekView(_ view:UIView, manager:JLCalManager)
     
-    @objc optional func buildMenuView(_ manager:JLCalManager) -> UIView
-    @objc optional func prepareMenuView(_ manager:JLCalManager)
+    @objc optional func buildTitleView(_ manager:JLCalManager) -> UIView
+    @objc optional func prepareTitleView(_ view:UIView, manager:JLCalManager)
     
-    @objc optional func buildPageView(_ manager:JLCalManager) -> UIView
+    @objc optional func buildMonthView(_ view:UIView, manager:JLCalManager) -> UIView
+    @objc optional func prepareMonthView(_ view:UIView, manager:JLCalManager)
     
 }

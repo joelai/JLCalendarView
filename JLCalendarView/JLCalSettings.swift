@@ -22,7 +22,11 @@ import Foundation
 @objc public class JLCalSettings : NSObject {
     public var weekDayFormat: JLWeekDayFormat = .short
     public var calViewPageType: JLCalViewPageType = .month
-    public var menuHeight: CGFloat = 30.0
+    public var titleHeight: CGFloat = 30.0
+    public var titleFontSize: CGFloat = 14.0
     public var weekDayHeight: CGFloat = 30.0
-    public var weekHeight: CGFloat = 50.0
+    public var weekDayFontSize: CGFloat = 14.0
+    public var weekHeight: CGFloat = 40.0
+    public var dayFontSize: CGFloat = 16.0
+    public var dayViewCircleBackgroundColor: UIColor = .red
 }
