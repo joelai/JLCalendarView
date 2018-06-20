@@ -68,8 +68,8 @@ extension Date {
 }
 
 @objc public class JLCalDateHelper : NSObject {
-    var calendar : Calendar
-    var dateFormatter : DateFormatter
+    public var calendar : Calendar
+    public var dateFormatter : DateFormatter
     
     override init() {
         calendar = Calendar.current
@@ -174,5 +174,9 @@ extension Date {
     
     public func isSameDay(_ date:Date, asDate:Date) -> Bool {
         return date.isSameDayAs(asDate)
+    }
+    
+    public func isDay(_ date:Date, betweenDate:Date, andDate:Date) -> Bool {
+        return date.isBetween(firstDate: betweenDate, lastDate: andDate)
     }
 }

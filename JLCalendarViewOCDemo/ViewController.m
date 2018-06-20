@@ -34,6 +34,11 @@
     [self.view addSubview:monthView];
 }
 
+- (UIView *)buildDayView:(JLCalManager *)manager
+{
+    return [JLCalRangeDayView new];
+}
+
 - (void)prepareDayView:(UIView *)view manager:(JLCalManager *)manager
 {
     if([view isKindOfClass:[JLCalDayView class]])
@@ -41,6 +46,26 @@
         JLCalDayView *dayView = (JLCalDayView *)view;
         dayView.circleView.hidden = ![manager.dateHelper isSameDay:dayView.date asDate:[NSDate date]];
         dayView.textLabel.textColor = [manager.dateHelper isSameDay:dayView.date asDate:[NSDate date]]?[UIColor whiteColor]:[UIColor blackColor];
+    }else if([view isKindOfClass:[JLCalRangeDayView class]])
+    {
+        JLCalRangeDayView *dayView = (JLCalRangeDayView *)view;
+        [manager.dateHelper.dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate *startDate = [manager.dateHelper.dateFormatter dateFromString:@"2018-06-03"];
+        NSDate *endDate = [manager.dateHelper.dateFormatter dateFromString:@"2018-06-15"];
+        if([manager.dateHelper isDay:dayView.date betweenDate:startDate andDate:endDate]){
+            if([manager.dateHelper isSameDay:dayView.date asDate:startDate])
+            {
+                dayView.rangeView.state = JLCalDayRangeStateStartRange;
+            }else if([manager.dateHelper isSameDay:dayView.date asDate:endDate])
+            {
+                dayView.rangeView.state = JLCalDayRangeStateEndRange;
+            }else{
+                dayView.rangeView.state = JLCalDayRangeStateInRange;
+            }
+            dayView.textLabel.textColor = UIColor.whiteColor;
+        }else{
+            dayView.textLabel.textColor = UIColor.blackColor;
+        }
     }
 }
 

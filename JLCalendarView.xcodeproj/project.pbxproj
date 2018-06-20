@@ -25,6 +25,7 @@
 		D817E89D20D0E0F6005A4261 /* JLCalTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D817E89C20D0E0F6005A4261 /* JLCalTitleView.swift */; };
 		D817E8B720D0EA04005A4261 /* JLCalendarView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D817E84520CFB530005A4261 /* JLCalendarView.framework */; };
 		D817E8B820D0EA04005A4261 /* JLCalendarView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D817E84520CFB530005A4261 /* JLCalendarView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D81DAAF120DA19DC004755CE /* JLCalRangeDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81DAAF020DA19DC004755CE /* JLCalRangeDayView.swift */; };
 		D88BD3C920D38AD90077699A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BD3C820D38AD90077699A /* AppDelegate.m */; };
 		D88BD3CC20D38AD90077699A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D88BD3CB20D38AD90077699A /* ViewController.m */; };
 		D88BD3CF20D38AD90077699A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D88BD3CD20D38AD90077699A /* Main.storyboard */; };
@@ -99,6 +100,7 @@
 		D817E87A20D0B87D005A4261 /* JLCalWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLCalWeekView.swift; sourceTree = "<group>"; };
 		D817E87C20D0B895005A4261 /* JLCalMonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLCalMonthView.swift; sourceTree = "<group>"; };
 		D817E89C20D0E0F6005A4261 /* JLCalTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLCalTitleView.swift; sourceTree = "<group>"; };
+		D81DAAF020DA19DC004755CE /* JLCalRangeDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JLCalRangeDayView.swift; sourceTree = "<group>"; };
 		D88BD3C520D38AD90077699A /* JLCalendarViewOCDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JLCalendarViewOCDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D88BD3C720D38AD90077699A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D88BD3C820D38AD90077699A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				D817E87020CFBFE7005A4261 /* JLCalSettings.swift */,
 				D817E87420CFC155005A4261 /* JLCalView.swift */,
 				D817E87620D0B80F005A4261 /* JLCalDayView.swift */,
+				D81DAAF020DA19DC004755CE /* JLCalRangeDayView.swift */,
 				D817E87820D0B86B005A4261 /* JLCalWeekDayView.swift */,
 				D817E87A20D0B87D005A4261 /* JLCalWeekView.swift */,
 				D817E87C20D0B895005A4261 /* JLCalMonthView.swift */,
@@ -355,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D817E86D20CFBEFF005A4261 /* JLCalManager.swift in Sources */,
+				D81DAAF120DA19DC004755CE /* JLCalRangeDayView.swift in Sources */,
 				D817E87520CFC155005A4261 /* JLCalView.swift in Sources */,
 				D817E89D20D0E0F6005A4261 /* JLCalTitleView.swift in Sources */,
 				D817E87920D0B86B005A4261 /* JLCalWeekDayView.swift in Sources */,

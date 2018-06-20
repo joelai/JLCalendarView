@@ -29,11 +29,33 @@ class ViewController: UIViewController, JLCalViewDelegate {
         calPage.date = Date()
     }
     
+    func buildDayView(_ manager: JLCalManager) -> UIView {
+        return JLCalRangeDayView()
+    }
+    
     func prepareDayView(_ view: UIView, manager: JLCalManager) {
         if view is JLCalDayView {
             let dayView: JLCalDayView = view as! JLCalDayView
             dayView.circleView?.isHidden = !(dayView.date?.isSameDayAs(Date()))!
             if (dayView.date?.isSameDayAs(Date()))! {
+                dayView.textLabel?.textColor = .white
+            }else{
+                dayView.textLabel?.textColor = .black
+            }
+        }else if view is JLCalRangeDayView {
+            let dayView: JLCalRangeDayView = view as! JLCalRangeDayView
+            manager.dateHelper.dateFormatter.dateFormat = "yyyy-MM-dd"
+            let startDay = manager.dateHelper.dateFormatter.date(from: "2018-06-03")
+            let endDay = manager.dateHelper.dateFormatter.date(from: "2018-06-16")
+            if (dayView.date?.isBetween(firstDate: startDay!, lastDate: endDay!))! {
+                if (dayView.date?.isSameDayAs(startDay!))! {
+                    dayView.rangeView?.state = .startRange
+                }
+                else if (dayView.date?.isSameDayAs(endDay!))! {
+                    dayView.rangeView?.state = .endRange
+                }else {
+                    dayView.rangeView?.state = .inRange
+                }
                 dayView.textLabel?.textColor = .white
             }else{
                 dayView.textLabel?.textColor = .black
