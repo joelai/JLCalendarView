@@ -68,8 +68,8 @@ extension Date {
 }
 
 @objc public class JLCalDateHelper : NSObject {
-    public var calendar : Calendar
-    public var dateFormatter : DateFormatter
+    @objc public var calendar : Calendar
+    @objc public var dateFormatter : DateFormatter
     
     override init() {
         calendar = Calendar.current
@@ -81,7 +81,7 @@ extension Date {
         dateFormatter.locale = self.calendar.locale
     }
     
-    public func firstDayOfMonth(_ date: Date) -> Date {
+    @objc public func firstDayOfMonth(_ date: Date) -> Date {
         let componentsDate = self.calendar.dateComponents([.year,.month,.day,.weekday,.weekOfMonth], from: date)
         var componentsNewDate = DateComponents()
         componentsNewDate.year = componentsDate.year
@@ -92,7 +92,7 @@ extension Date {
         return self.calendar.date(from: componentsNewDate)!
     }
     
-    public func lastDayOfMonth(_ date: Date) -> Date {
+    @objc public func lastDayOfMonth(_ date: Date) -> Date {
         let componentsDate = self.calendar.dateComponents([.year,.month,.day,.weekday,.weekOfMonth], from: date)
         var componentsNewDate = DateComponents()
         componentsNewDate.year = componentsDate.year
@@ -102,7 +102,7 @@ extension Date {
         return self.calendar.date(from: componentsNewDate)!
     }
     
-    public func numberOfWeeks(_ date: Date) -> NSInteger {
+    @objc public func numberOfWeeks(_ date: Date) -> NSInteger {
         let firstDay = firstDayOfMonth(date)
         let lastDay = lastDayOfMonth(date)
         
@@ -119,7 +119,7 @@ extension Date {
         return (componentsB.weekOfYear! - componentsA.weekOfYear! + 52 + 1)%52
     }
 
-    public func firstWeekDayOfWeek(_ date: Date) -> Date {
+    @objc public func firstWeekDayOfWeek(_ date: Date) -> Date {
         let componentsDate = self.calendar.dateComponents([.year,.month,.day,.weekday,.weekOfMonth], from: date)
         var componentsNewDate = DateComponents()
         componentsNewDate.year = componentsDate.year
@@ -130,38 +130,38 @@ extension Date {
         return self.calendar.date(from: componentsNewDate)!
     }
     
-    public func firstWeekDayOfMonth(_ date:Date) -> Date {
+    @objc public func firstWeekDayOfMonth(_ date:Date) -> Date {
         let dayOfMonth = firstDayOfMonth(date)
         return firstWeekDayOfWeek(dayOfMonth)
     }
     
-    public func lastWeekDayOfWeek(_ date: Date) -> Date {
+    @objc public func lastWeekDayOfWeek(_ date: Date) -> Date {
         let nextWeek = date.addWeek(1)
         let nextFirstDay = firstWeekDayOfWeek(nextWeek)
         return nextFirstDay.addDay(-1)
     }
     
-    public func isFirstDayOfWeek(_ date: Date) -> Bool {
+    @objc public func isFirstDayOfWeek(_ date: Date) -> Bool {
         let firstDay = firstWeekDayOfWeek(date)
         return date.isSameDayAs(firstDay)
     }
     
-    public func isLastDayOfWeek(_ date: Date) -> Bool {
+    @objc public func isLastDayOfWeek(_ date: Date) -> Bool {
         let lastDay = lastWeekDayOfWeek(date)
         return date.isSameDayAs(lastDay)
     }
     
-    public func isFirstDayOfMonth(_ date: Date) -> Bool {
+    @objc public func isFirstDayOfMonth(_ date: Date) -> Bool {
         let firstDay = firstDayOfMonth(date)
         return date.isSameDayAs(firstDay)
     }
     
-    public func isLastDayOfMonth(_ date: Date) -> Bool {
+    @objc public func isLastDayOfMonth(_ date: Date) -> Bool {
         let lastDay = lastDayOfMonth(date)
         return date.isSameDayAs(lastDay)
     }
     
-    public func weekHasDaysInSameMonthOfDay(weekDay:Date, compare:Date) -> Bool {
+    @objc public func weekHasDaysInSameMonthOfDay(weekDay:Date, compare:Date) -> Bool {
         var day = firstWeekDayOfWeek(weekDay)
         for _ in 0 ..< 7 {
             if day.isSameMonthAs(compare) {
@@ -172,11 +172,11 @@ extension Date {
         return false
     }
     
-    public func isSameDay(_ date:Date, asDate:Date) -> Bool {
+    @objc public func isSameDay(_ date:Date, asDate:Date) -> Bool {
         return date.isSameDayAs(asDate)
     }
     
-    public func isDay(_ date:Date, betweenDate:Date, andDate:Date) -> Bool {
+    @objc public func isDay(_ date:Date, betweenDate:Date, andDate:Date) -> Bool {
         return date.isBetween(firstDate: betweenDate, lastDate: andDate)
     }
 }

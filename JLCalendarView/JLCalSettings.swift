@@ -20,13 +20,13 @@ import Foundation
 }
 
 @objc public class JLCalSettings : NSObject {
-    public var weekDayFormat: JLWeekDayFormat = .short
-    public var calViewPageType: JLCalViewPageType = .month
-    public var titleHeight: CGFloat = 30.0
-    public var titleFontSize: CGFloat = 14.0
-    public var weekDayHeight: CGFloat = 30.0
-    public var weekDayFontSize: CGFloat = 14.0
-    public var weekHeight: CGFloat = 40.0
-    public var dayFontSize: CGFloat = 16.0
-    public var dayViewCircleBackgroundColor: UIColor = .red
+    @objc public var weekDayFormat: JLWeekDayFormat = .short
+    @objc public var calViewPageType: JLCalViewPageType = .month
+    @objc public var titleHeight: CGFloat = 30.0
+    @objc public var titleFontSize: CGFloat = 14.0
+    @objc public var weekDayHeight: CGFloat = 30.0
+    @objc public var weekDayFontSize: CGFloat = 14.0
+    @objc public var weekHeight: CGFloat = 40.0
+    @objc public var dayFontSize: CGFloat = 16.0
+    @objc public var dayViewCircleBackgroundColor: UIColor = .red
 }

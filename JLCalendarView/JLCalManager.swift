@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 
 @objc public class JLCalManager : NSObject {
-    public weak var delegate:JLCalViewDelegate?
-    public var dateHelper: JLCalDateHelper
-    public var settings: JLCalSettings
+    @objc public weak var delegate:JLCalViewDelegate?
+    @objc public var dateHelper: JLCalDateHelper
+    @objc public var settings: JLCalSettings
     
     override public init() {
         dateHelper = JLCalDateHelper()
         settings = JLCalSettings()
     }
     
-    public func buildDayView() -> UIView {
+    @objc public func buildDayView() -> UIView {
         if let view = self.delegate?.buildDayView?(self) {
             if let v = view as? JLCalDay {
                 return v as! UIView
@@ -28,7 +28,7 @@ import UIKit
         return JLCalDayView()
     }
     
-    public func buildTitleView() -> UIView {
+    @objc public func buildTitleView() -> UIView {
         if let view = self.delegate?.buildTitleView?(self) {
             if let v = view as? JLCalTitle {
                 return v as! UIView
@@ -37,7 +37,7 @@ import UIKit
         return JLCalTitleView()
     }
     
-    public func buildWeekDayView() -> UIView {
+    @objc public func buildWeekDayView() -> UIView {
         if let view = self.delegate?.buildWeekDayView?(self) {
             if let v = view as? JLCalWeekDay {
                 return v as! UIView
@@ -46,7 +46,7 @@ import UIKit
         return JLCalWeekDayView()
     }
     
-    public func buildWeekView() -> UIView {
+    @objc public func buildWeekView() -> UIView {
         if let view = self.delegate?.buildWeekView?(self) {
             if let v = view as? JLCalWeek {
                 return v as! UIView

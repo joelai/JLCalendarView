@@ -17,7 +17,7 @@ import UIKit
             self.reload()
         }
     }
-    public var titleLabel: UILabel?
+    @objc public var titleLabel: UILabel?
     public override init(frame: CGRect) {
         super.init(frame: frame)
         titleLabel = UILabel(frame: CGRect.init(x: 0, y: 0, width: frame.size.width, height: frame.size.height))

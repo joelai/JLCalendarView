@@ -17,15 +17,15 @@ import UIKit
 }
 
 @objc public class JLCalDayRangeView: UIView {
-    public var state : JLCalDayRangeState = .none
+    @objc public var state : JLCalDayRangeState = .none
     {
         didSet
         {
             self.setNeedsDisplay()
         }
     }
-    public var selectedBackgroundColor : UIColor = .red
-    public var inRangeBackgroundColor :  UIColor = .orange
+    @objc public var selectedBackgroundColor : UIColor = .red
+    @objc public var inRangeBackgroundColor :  UIColor = .orange
     override public func draw(_ rect: CGRect) {
         super.draw(rect)
         
@@ -98,8 +98,8 @@ import UIKit
         // Drawing code
     }
     */
-    public var rangeView: JLCalDayRangeView?
-    public var textLabel: UILabel?
+    @objc public var rangeView: JLCalDayRangeView?
+    @objc public var textLabel: UILabel?
     public var isFromOtherMonth: Bool = false
     public var calManager: JLCalManager?
     public var date: Date?

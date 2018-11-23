@@ -9,6 +9,6 @@
 import UIKit
 
 @objc public class JLCalView: UIScrollView, JLCalContent {
-    public var calManager: JLCalManager?
-    public var date: Date?
+    @objc public var calManager: JLCalManager?
+    @objc public var date: Date?
 }

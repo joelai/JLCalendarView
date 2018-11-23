@@ -9,8 +9,8 @@
 import UIKit
 
 @objc public class JLCalDayView: UIView,JLCalDay {
-    public var textLabel : UILabel?
-    public var circleView : UIView?
+    @objc public var textLabel : UILabel?
+    @objc public var circleView : UIView?
     public var isFromOtherMonth: Bool = false
     public var calManager: JLCalManager?
     public var date: Date?
