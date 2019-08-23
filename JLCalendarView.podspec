@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "JLCalendarView"
-  s.version      = "0.9.5"
+  s.version      = "0.9.6"
   s.summary      = "Calendar View"
   s.homepage     = "https://github.com/joelai/JLCalendarView"
   s.license      = { :type => 'MIT License', :file => 'LICENSE' }

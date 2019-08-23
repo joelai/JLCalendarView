@@ -23,9 +23,11 @@
     
     JLCalMonthView *monthView = [[JLCalMonthView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 0)];
     JLCalManager *manager = [[JLCalManager alloc] init];
-    manager.settings.titleHeight = 44.0;
-    manager.settings.weekDayHeight = 30.0;
+    manager.settings.titleHeight = 0.0;
+    manager.settings.weekDayHeight = 44.0;
     manager.settings.weekHeight = 50.0;
+    manager.settings.calViewPageType = JLCalViewPageTypeWeek;
+    manager.settings.weekDayFormat = JLWeekDayFormatSingle;
 
     manager.delegate = self;
     monthView.calManager = manager;
@@ -34,9 +36,14 @@
     [self.view addSubview:monthView];
 }
 
+- (UIView *)buildTitleView:(JLCalManager *)manager
+{
+    return nil;
+}
+
 - (UIView *)buildDayView:(JLCalManager *)manager
 {
-    return [JLCalRangeDayView new];
+    return [[JLCalDayView alloc] init];
 }
 
 - (void)prepareDayView:(UIView *)view manager:(JLCalManager *)manager

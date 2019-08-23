@@ -70,8 +70,8 @@ extension Date {
 @objc public class JLCalDateHelper : NSObject {
     @objc public var calendar : Calendar
     @objc public var dateFormatter : DateFormatter
-    
-    override init() {
+
+    override public init() {
         calendar = Calendar.current
         calendar.timeZone = NSTimeZone.local
         calendar.locale = NSLocale.current
